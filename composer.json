@@ -1,0 +1,14 @@
+{
+    "name": "juststeveking/laravel-stubs",
+    "description": "An opinionated version of the Laravel stubs",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steve McDougall",
+            "email": "juststevemcd@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
