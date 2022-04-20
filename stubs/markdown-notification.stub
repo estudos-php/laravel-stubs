@@ -1,0 +1,51 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ namespace }};
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
+
+class {{ class }} extends Notification
+{
+    use Queueable;
+
+    /**
+     * @return void
+     */
+    public function __construct(
+        //
+    ) {}
+
+    /**
+     * @param  mixed  $notifiable
+     * @return array<int,string>
+     */
+    public function via(mixed $notifiable): array
+    {
+        return ['mail'];
+    }
+
+    /**
+     * @param  mixed  $notifiable
+     * @return MailMessage
+     */
+    public function toMail(mixed $notifiable): MailMessage
+    {
+        return (new MailMessage)->markdown('{{ view }}');
+    }
+
+    /**
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toArray(mixed $notifiable): array
+    {
+        return [
+            //
+        ];
+    }
+}
