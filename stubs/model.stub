@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace {{ namespace }};
 
-use Kra8\Snowflake\HasSnowflakePrimary;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Snowflake\SnowflakeCast;
+use Snowflake\Snowflakes;
 
 class {{ class }} extends Model
 {
+    use Snowflakes;
     use HasFactory;
-    use HasSnowflakePrimary;
 
     /**
      * @var array<int,string>
@@ -22,7 +23,9 @@ class {{ class }} extends Model
     /**
      * @var array<string,string|class-string>
      */
-    protected $casts = [];
+    protected $casts = [
+        'id' => SnowflakeCast::class,
+    ];
 
     // relationships
 
